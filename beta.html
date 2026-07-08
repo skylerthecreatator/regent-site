@@ -21,7 +21,7 @@
       <a href="index.html#business">Бизнес</a>
       <a href="beta.html">Beta</a>
     </nav>
-    <a class="nav-action" href="https://github.com/skylerthecreatator/regent-connect/releases/download/beta-0.36/RegentConnect-Setup-x64.exe" download>Скачать Setup</a>
+    <a class="nav-action" href="https://github.com/skylerthecreatator/regent-connect/releases/download/beta-0.36/RegentConnect-Setup-x64.exe" data-download-report>Скачать Setup</a>
   </header>
 
   <main>
@@ -31,8 +31,8 @@
         <h1>Проверка Discord + YouTube без лишней возни.</h1>
         <p class="lead">Эта страница для первых тестеров. Установи приложение, нажми Smart Discord + YouTube и проверь, открываются ли Discord и YouTube. Telegram пока не считаем стабильной функцией релиза.</p>
         <div class="hero-actions">
-          <a class="button primary" href="https://github.com/skylerthecreatator/regent-connect/releases/download/beta-0.36/RegentConnect-Setup-x64.exe" download>Скачать RegentConnect Setup</a>
-          <a class="button secondary" href="#report">Что отправить при ошибке</a>
+          <a class="button primary" href="https://github.com/skylerthecreatator/regent-connect/releases/download/beta-0.36/RegentConnect-Setup-x64.exe" data-download-report>Скачать и перейти к форме</a>
+          <a class="button secondary" href="#send-result">Отправить результат</a>
         </div>
       </div>
 
@@ -48,52 +48,10 @@
       </section>
     </section>
 
-    <section class="tester-section">
-      <div class="section-head">
-        <p class="eyebrow">Как тестировать</p>
-        <h2>Обычный сценарий занимает пару минут.</h2>
-      </div>
-
-      <div class="tester-grid">
-        <article>
-          <small>1</small>
-          <b>Установи Setup</b>
-          <span>Закрой старую версию Regent Connect перед установкой. Если установщик просит заменить файлы, соглашайся.</span>
-        </article>
-        <article>
-          <small>2</small>
-          <b>Нажми Smart</b>
-          <span>В приложении выбери Smart Discord + YouTube. Во время подбора не нажимай кнопки несколько раз подряд.</span>
-        </article>
-        <article>
-          <small>3</small>
-          <b>Проверь сервисы</b>
-          <span>Открой Discord, затем YouTube. Напиши, что именно заработало, а что зависло или грузится слишком долго.</span>
-        </article>
-        <article id="report">
-          <small>4</small>
-          <b>Если не работает</b>
-          <span>Открой Настройки -> Сформировать отчет. Отправь отчет, провайдера, город, Windows и короткое описание проблемы.</span>
-        </article>
-      </div>
-    </section>
-
-    <section class="tester-section compact">
-      <div class="section-head">
-        <p class="eyebrow">Что важно</p>
-        <h2>Нужны не просто “работает/не работает”, а данные по провайдерам.</h2>
-      </div>
-      <div class="why-grid">
-        <article><b>Провайдер</b><span>Например: Дом.ру, Ростелеком, МТС, Билайн.</span></article>
-        <article><b>Регион</b><span>Город или область. У разных регионов фильтрация может отличаться.</span></article>
-        <article><b>Поведение</b><span>Discord stuck на update, YouTube не грузит видео, работает только после перезапуска и так далее.</span></article>
-      </div>
-    </section>
-
     <section class="tester-section compact" id="send-result">
       <div class="section-head">
         <p class="eyebrow">Отправить результат</p>
-        <h2>Форма сама отправит данные в Telegram разработчику.</h2>
+        <h2>Заполни после проверки Discord и YouTube.</h2>
       </div>
       <form class="report-form" id="beta-report-form">
         <label>
@@ -158,6 +116,48 @@
         <button class="button primary" type="submit">Отправить результат</button>
         <p class="form-status" id="report-form-status">Данные уйдут в Telegram владельцу проекта. Диагностический файл пока отправляется вручную.</p>
       </form>
+    </section>
+
+    <section class="tester-section">
+      <div class="section-head">
+        <p class="eyebrow">Как тестировать</p>
+        <h2>Обычный сценарий занимает пару минут.</h2>
+      </div>
+
+      <div class="tester-grid">
+        <article>
+          <small>1</small>
+          <b>Установи Setup</b>
+          <span>Закрой старую версию Regent Connect перед установкой. Если установщик просит заменить файлы, соглашайся.</span>
+        </article>
+        <article>
+          <small>2</small>
+          <b>Нажми Smart</b>
+          <span>В приложении выбери Smart Discord + YouTube. Во время подбора не нажимай кнопки несколько раз подряд.</span>
+        </article>
+        <article>
+          <small>3</small>
+          <b>Проверь сервисы</b>
+          <span>Открой Discord, затем YouTube. Напиши, что именно заработало, а что зависло или грузится слишком долго.</span>
+        </article>
+        <article id="report">
+          <small>4</small>
+          <b>Если не работает</b>
+          <span>Открой Настройки -> Сформировать отчет. Отправь отчет, провайдера, город, Windows и короткое описание проблемы.</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="tester-section compact">
+      <div class="section-head">
+        <p class="eyebrow">Что важно</p>
+        <h2>Нужны не просто “работает/не работает”, а данные по провайдерам.</h2>
+      </div>
+      <div class="why-grid">
+        <article><b>Провайдер</b><span>Например: Дом.ру, Ростелеком, МТС, Билайн.</span></article>
+        <article><b>Регион</b><span>Город или область. У разных регионов фильтрация может отличаться.</span></article>
+        <article><b>Поведение</b><span>Discord stuck на update, YouTube не грузит видео, работает только после перезапуска и так далее.</span></article>
+      </div>
     </section>
 
     <section class="tester-section compact" id="safety">

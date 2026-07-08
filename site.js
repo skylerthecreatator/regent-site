@@ -90,6 +90,24 @@ requestAnimationFrame(draw);
 
 const reportForm = document.getElementById("beta-report-form");
 const reportStatus = document.getElementById("report-form-status");
+const downloadReportLinks = document.querySelectorAll("[data-download-report]");
+
+downloadReportLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const url = link.getAttribute("href");
+    if (!url) return;
+
+    window.open(url, "_blank", "noopener");
+    window.setTimeout(() => {
+      if (window.location.pathname.endsWith("/beta.html")) {
+        document.getElementById("send-result")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.location.href = "beta.html#send-result";
+      }
+    }, 500);
+  });
+});
 
 if (reportForm) {
   reportForm.addEventListener("submit", async (event) => {
