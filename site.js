@@ -111,9 +111,16 @@ if (reportForm) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
-      const data = await response.json().catch(() => ({}));
+      const raw = await response.text();
+      let data = {};
+      try {
+        data = raw ? JSON.parse(raw) : {};
+      } catch {
+        data = { error: raw.slice(0, 240) };
+      }
       if (!response.ok || data.ok === false) {
-        throw new Error(data.error || "Не удалось отправить отчет.");
+        const reason = data.error || response.statusText || "Не удалось отправить отчет.";
+        throw new Error(`HTTP ${response.status}: ${reason}`);
       }
       reportForm.reset();
       setReportStatus("Готово. Результат отправлен разработчику в Telegram.", "ok");
