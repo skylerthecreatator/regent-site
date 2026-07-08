@@ -87,3 +87,49 @@ function draw(time) {
 window.addEventListener("resize", resize);
 resize();
 requestAnimationFrame(draw);
+
+const reportForm = document.getElementById("beta-report-form");
+const reportStatus = document.getElementById("report-form-status");
+
+if (reportForm) {
+  reportForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const submit = reportForm.querySelector("button[type='submit']");
+    const formData = new FormData(reportForm);
+    const payload = Object.fromEntries(formData.entries());
+    payload.source = "regent-beta-site";
+
+    if (submit) {
+      submit.disabled = true;
+      submit.textContent = "Отправляю...";
+    }
+    setReportStatus("Отправляю результат теста...", "info");
+
+    try {
+      const response = await fetch("/api/report", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || data.ok === false) {
+        throw new Error(data.error || "Не удалось отправить отчет.");
+      }
+      reportForm.reset();
+      setReportStatus("Готово. Результат отправлен разработчику в Telegram.", "ok");
+    } catch (error) {
+      setReportStatus(`Не отправилось: ${error.message}. Напиши разработчику напрямую и приложи отчет из приложения.`, "error");
+    } finally {
+      if (submit) {
+        submit.disabled = false;
+        submit.textContent = "Отправить результат";
+      }
+    }
+  });
+}
+
+function setReportStatus(text, tone) {
+  if (!reportStatus) return;
+  reportStatus.textContent = text;
+  reportStatus.dataset.tone = tone;
+}

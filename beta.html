@@ -89,6 +89,97 @@
         <article><b>Поведение</b><span>Discord stuck на update, YouTube не грузит видео, работает только после перезапуска и так далее.</span></article>
       </div>
     </section>
+
+    <section class="tester-section compact" id="send-result">
+      <div class="section-head">
+        <p class="eyebrow">Отправить результат</p>
+        <h2>Форма сама отправит данные в Telegram разработчику.</h2>
+      </div>
+      <form class="report-form" id="beta-report-form">
+        <label>
+          <span>Имя или ник</span>
+          <input name="name" autocomplete="name" placeholder="Например: Алексей">
+        </label>
+        <label>
+          <span>Контакт для уточнений</span>
+          <input name="contact" autocomplete="off" placeholder="@telegram или Discord">
+        </label>
+        <label>
+          <span>Провайдер</span>
+          <input name="provider" required placeholder="Дом.ру, Ростелеком, МТС...">
+        </label>
+        <label>
+          <span>Город / регион</span>
+          <input name="city" required placeholder="Иркутск">
+        </label>
+        <label>
+          <span>Windows</span>
+          <select name="windows" required>
+            <option value="">Выбери версию</option>
+            <option>Windows 11</option>
+            <option>Windows 10</option>
+            <option>Другое / не знаю</option>
+          </select>
+        </label>
+        <label>
+          <span>Итог</span>
+          <select name="result" required>
+            <option value="">Выбери итог</option>
+            <option>Все заработало</option>
+            <option>Заработало не с первого раза</option>
+            <option>Работает только Discord</option>
+            <option>Работает только YouTube</option>
+            <option>Не заработало</option>
+            <option>Не удалось установить</option>
+          </select>
+        </label>
+        <label>
+          <span>Discord</span>
+          <select name="discord">
+            <option>Не проверял</option>
+            <option>Работает</option>
+            <option>Не работает</option>
+            <option>Долго подключается</option>
+          </select>
+        </label>
+        <label>
+          <span>YouTube</span>
+          <select name="youtube">
+            <option>Не проверял</option>
+            <option>Работает</option>
+            <option>Не работает</option>
+            <option>Глючит качество / 4K</option>
+          </select>
+        </label>
+        <label class="wide">
+          <span>Комментарий</span>
+          <textarea name="details" rows="5" placeholder="Сколько подбиралось, что было в приложении, что именно не открылось. Если есть отчет диагностики, отправь его отдельно в Telegram."></textarea>
+        </label>
+        <button class="button primary" type="submit">Отправить результат</button>
+        <p class="form-status" id="report-form-status">Данные уйдут в Telegram владельцу проекта. Диагностический файл пока отправляется вручную.</p>
+      </form>
+    </section>
+
+    <section class="tester-section compact" id="safety">
+      <div class="section-head">
+        <p class="eyebrow">Предупреждение Windows</p>
+        <h2>Если браузер или SmartScreen пишет, что файл может быть опасен.</h2>
+      </div>
+      <div class="trust-grid">
+        <article>
+          <b>Почему так происходит</b>
+          <span>У beta-приложения еще нет платной подписи издателя и репутации скачиваний. Windows часто предупреждает о новых `.exe`, даже если файл скачан с GitHub.</span>
+        </article>
+        <article>
+          <b>Как проверять</b>
+          <span>Скачивай файл только с GitHub Releases. Размер setup около 3 МБ. Если файл получен из другого источника, лучше не запускать.</span>
+        </article>
+        <article>
+          <b>SHA256 setup</b>
+          <code>581D7A42030235F8CE5E98614893ABAC08FB60126080E34C0815FCED4D14FBC3</code>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer>

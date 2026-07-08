@@ -569,6 +569,7 @@ h2 {
 .why,
 .beta,
 .roadmap,
+.trust,
 .tester-section {
   padding: 78px clamp(18px, 5vw, 76px);
 }
@@ -750,6 +751,127 @@ h2 {
   padding-left: 20px;
 }
 
+.trust {
+  border-top: 1px solid rgba(255,255,255,.09);
+  border-bottom: 1px solid rgba(255,255,255,.09);
+  background: linear-gradient(145deg, rgba(35,141,255,.07), rgba(50,229,126,.035));
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.trust-grid article {
+  min-height: 180px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panel);
+}
+
+.trust-grid b {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.trust-grid span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.trust-grid code {
+  display: block;
+  margin-top: 14px;
+  padding: 14px;
+  overflow-wrap: anywhere;
+  border: 1px solid rgba(43,211,255,.22);
+  border-radius: 14px;
+  color: #bcefff;
+  background: rgba(0,0,0,.22);
+  font-family: Consolas, "Cascadia Mono", monospace;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.report-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 980px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: var(--panel);
+}
+
+.report-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.report-form label.wide,
+.report-form button,
+.report-form .form-status {
+  grid-column: 1 / -1;
+}
+
+.report-form label span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.report-form input,
+.report-form select,
+.report-form textarea {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 14px;
+  outline: none;
+  padding: 0 14px;
+  color: var(--text);
+  background: rgba(0,0,0,.22);
+  font: inherit;
+}
+
+.report-form textarea {
+  min-height: 120px;
+  padding: 14px;
+  resize: vertical;
+}
+
+.report-form input:focus,
+.report-form select:focus,
+.report-form textarea:focus {
+  border-color: rgba(43,211,255,.48);
+  box-shadow: 0 0 0 3px rgba(43,211,255,.08);
+}
+
+.report-form button {
+  border: 0;
+  cursor: pointer;
+}
+
+.report-form button:disabled {
+  cursor: wait;
+  opacity: .72;
+}
+
+.form-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.form-status[data-tone="ok"] { color: var(--green); }
+.form-status[data-tone="error"] { color: #ff7683; }
+.form-status[data-tone="info"] { color: var(--cyan); }
+
 .steps {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -806,6 +928,8 @@ footer b { color: var(--text); }
   .product-grid,
   .why-grid,
   .tester-grid,
+  .trust-grid,
+  .report-form,
   .steps {
     grid-template-columns: 1fr 1fr;
   }
@@ -846,6 +970,8 @@ footer b { color: var(--text); }
   .product-grid,
   .why-grid,
   .tester-grid,
+  .trust-grid,
+  .report-form,
   .steps {
     grid-template-columns: 1fr;
   }
