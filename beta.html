@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Regent Connect Beta - инструкция тестера</title>
-  <meta name="description" content="Как протестировать Regent Connect Beta и отправить отчет, если Discord или YouTube не заработали.">
+  <meta name="description" content="Как протестировать Regent Connect Beta и отправить отчет, если Discord, YouTube или Telegram не заработали.">
   <link rel="icon" href="assets/brand/favicon.ico">
   <link rel="apple-touch-icon" href="assets/brand/regent-connect-icon.png">
   <link rel="stylesheet" href="styles.css">
@@ -23,17 +23,17 @@
       <a href="index.html#business">Бизнес</a>
       <a href="beta.html">Beta</a>
     </nav>
-    <a class="nav-action" href="https://github.com/skylerthecreatator/regent-connect/releases/download/beta-0.36/RegentConnect-Setup-x64.exe" data-download-report>Скачать Setup</a>
+    <a class="nav-action" href="https://github.com/skylerthecreatator/regent-connect/releases/download/beta-0.44/RegentConnect-Setup-x64.exe" data-download-report>Скачать Setup</a>
   </header>
 
   <main>
     <section class="tester-hero">
       <div>
         <p class="eyebrow">Regent Connect Beta</p>
-        <h1>Проверка Discord + YouTube без лишней возни.</h1>
-        <p class="lead">Эта страница для первых тестеров. Установи приложение, нажми Smart Discord + YouTube и проверь, открываются ли Discord и YouTube. Telegram пока не считаем стабильной функцией релиза.</p>
+        <h1>Проверка Discord, YouTube и Telegram без лишней возни.</h1>
+        <p class="lead">Эта страница для первых тестеров. Установи приложение, нажми Smart Discord + YouTube, а для Telegram нажми Smart Telegram и включи proxy в Telegram Desktop.</p>
         <div class="hero-actions">
-          <a class="button primary" href="https://github.com/skylerthecreatator/regent-connect/releases/download/beta-0.36/RegentConnect-Setup-x64.exe" data-download-report>Скачать и перейти к форме</a>
+          <a class="button primary" href="https://github.com/skylerthecreatator/regent-connect/releases/download/beta-0.44/RegentConnect-Setup-x64.exe" data-download-report>Скачать и перейти к форме</a>
           <a class="button secondary" href="#send-result">Отправить результат</a>
         </div>
       </div>
@@ -59,7 +59,7 @@
         <div class="preview-routes">
           <div style="--w: 92%"><b>Discord</b><span>main check</span></div>
           <div style="--w: 82%"><b>YouTube</b><span>main check</span></div>
-          <div style="--w: 44%"><b>Telegram</b><span>later</span></div>
+          <div style="--w: 58%"><b>Telegram</b><span>beta proxy</span></div>
         </div>
       </section>
     </section>
@@ -67,7 +67,7 @@
     <section class="tester-section compact" id="send-result">
       <div class="section-head">
         <p class="eyebrow">Отправить результат</p>
-        <h2>Заполни после проверки Discord и YouTube.</h2>
+        <h2>Заполни после проверки Discord, YouTube и Telegram.</h2>
       </div>
       <form class="report-form" id="beta-report-form">
         <label>
@@ -103,6 +103,9 @@
             <option>Заработало не с первого раза</option>
             <option>Работает только Discord</option>
             <option>Работает только YouTube</option>
+            <option>Работает только Telegram</option>
+            <option>Discord + YouTube работают, Telegram нет</option>
+            <option>Telegram работает, Discord/YouTube нет</option>
             <option>Не заработало</option>
             <option>Не удалось установить</option>
           </select>
@@ -125,9 +128,19 @@
             <option>Глючит качество / 4K</option>
           </select>
         </label>
+        <label>
+          <span>Telegram</span>
+          <select name="telegram">
+            <option>Не проверял</option>
+            <option>Работает через Smart Telegram</option>
+            <option>Proxy запустился, но Telegram не работает</option>
+            <option>Не смог включить proxy в Telegram</option>
+            <option>Smart Telegram не запускается</option>
+          </select>
+        </label>
         <label class="wide">
           <span>Комментарий</span>
-          <textarea name="details" rows="5" placeholder="Сколько подбиралось, что было в приложении, что именно не открылось. Если есть отчет диагностики, отправь его отдельно в Telegram."></textarea>
+          <textarea name="details" rows="5" placeholder="Сколько подбиралось, что было в приложении, что именно не открылось. Для Telegram напиши, включил ли MTProto proxy 127.0.0.1:1443."></textarea>
         </label>
         <button class="button primary" type="submit">Отправить результат</button>
         <p class="form-status" id="report-form-status">Данные уйдут в Telegram владельцу проекта. Диагностический файл пока отправляется вручную.</p>
@@ -149,12 +162,12 @@
         <article>
           <small>2</small>
           <b>Нажми Smart</b>
-          <span>В приложении выбери Smart Discord + YouTube. Во время подбора не нажимай кнопки несколько раз подряд.</span>
+          <span>В приложении выбери Smart Discord + YouTube. Для Telegram отдельно нажми Smart Telegram.</span>
         </article>
         <article>
           <small>3</small>
           <b>Проверь сервисы</b>
-          <span>Открой Discord, затем YouTube. Напиши, что именно заработало, а что зависло или грузится слишком долго.</span>
+          <span>Открой Discord, YouTube и Telegram Desktop. Для Telegram включи MTProto proxy: 127.0.0.1, порт 1443.</span>
         </article>
         <article id="report">
           <small>4</small>
@@ -172,7 +185,7 @@
       <div class="why-grid">
         <article><b>Провайдер</b><span>Например: Дом.ру, Ростелеком, МТС, Билайн.</span></article>
         <article><b>Регион</b><span>Город или область. У разных регионов фильтрация может отличаться.</span></article>
-        <article><b>Поведение</b><span>Discord stuck на update, YouTube не грузит видео, работает только после перезапуска и так далее.</span></article>
+        <article><b>Поведение</b><span>Discord stuck на update, YouTube не грузит видео, Telegram не подключается к proxy и так далее.</span></article>
       </div>
     </section>
 
@@ -192,7 +205,7 @@
         </article>
         <article>
           <b>SHA256 setup</b>
-          <code>63EE35A3673C224958222B6DB8DD85D65345405EB1568BB531D9CA94F5DBE937</code>
+          <code>9F5490D77E0F583C495F9BA706276E6C4A506941EA58776EC8178B25F5FFF2EC</code>
         </article>
       </div>
     </section>
@@ -206,5 +219,6 @@
   <script src="site.js"></script>
 </body>
 </html>
+
 
 
